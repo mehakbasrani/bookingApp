@@ -3,7 +3,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
 
-  const { data, loading, error } = useFetch(
+  const { data, loading } = useFetch(
     "http://127.0.0.1:8000/api/hotels/countByType"  
   );
 

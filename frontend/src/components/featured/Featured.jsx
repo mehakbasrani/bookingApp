@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
 
-  const { data, loading, error } = useFetch(
+  const { data, loading } = useFetch(
     "http://127.0.0.1:8000/api/hotels/countByCity?cities=indore,jabalpur,sagar"  
   );
 //console.log(data)
