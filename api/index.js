@@ -12,7 +12,7 @@ const app = express();
 dotenv.config();
 
 const hostname = "127.0.0.1";
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 const connect = async () => {
   try {
@@ -34,11 +34,7 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
-app.use(cors(
-  origin: ["https://booking-app-api-l0am.onrender.com/"],
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true
-));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
@@ -58,7 +54,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, hostname, () => {
+app.listen(PORT, hostname, () => {
   connect();
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${PORT}/`);
 });
