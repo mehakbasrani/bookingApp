@@ -34,7 +34,11 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
-app.use(cors());
+app.use(cors(
+  origin: ["https://booking-app-api-l0am.onrender.com/"],
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
+));
 app.use(cookieParser());
 app.use(express.json());
 
